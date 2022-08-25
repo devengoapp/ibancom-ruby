@@ -1,0 +1,5 @@
+---
+inherit_from:
+  - .rubocop_devengo.yml
+AllCops:
+  TargetRubyVersion: 2.6
