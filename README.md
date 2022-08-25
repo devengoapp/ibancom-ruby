@@ -14,15 +14,11 @@ gem 'ibancom'
 
 And then execute:
 
-```sh
-$ bundle install
-```
+`$ bundle install`
 
 Or install it yourself as:
 
-```sh
-$ gem install ibancom
-```
+`$ gem install ibancom`
 
 ### Supported APIs
 
