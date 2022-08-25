@@ -10,11 +10,11 @@ Gem::Specification.new do |spec|
 
   spec.summary = "Ruby client for iban.com APIs"
   spec.description = "Ruby client for iban.com APIs"
-  spec.homepage = "https://github.com/devengo/ibancom-ruby"
+  spec.homepage = "https://github.com/devengoapp/ibancom-ruby"
   spec.license = "MIT"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/devengo/ibancom-ruby"
+  spec.metadata["source_code_uri"] = "https://github.com/devengoapp/ibancom-ruby"
   spec.metadata["rubygems_mfa_required"] = "true"
 
   # Specify which files should be added to the gem when it is released.
