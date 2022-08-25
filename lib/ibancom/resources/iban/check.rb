@@ -11,7 +11,7 @@ module Ibancom
           "005" => "IBAN structure is correct",
           "006" => "IBAN does not contain illegal characters",
           "007" => "Country supports IBAN standard",
-        }
+        }.freeze
 
         attr_accessor :type,
                       :code,

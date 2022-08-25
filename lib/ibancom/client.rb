@@ -26,7 +26,7 @@ module Ibancom
 
     def connection
       @connection ||= Faraday.new do |builder|
-        builder.request  :url_encoded
+        builder.request :url_encoded
         builder.use Faraday::Response::RaiseError
         builder.response :json,
                          content_type: /\bjson$/,
