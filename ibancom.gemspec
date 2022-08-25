@@ -8,14 +8,14 @@ Gem::Specification.new do |spec|
   spec.authors = ["Aitor García Rey"]
   spec.email = ["aitor@devengo.com"]
 
-  spec.summary = " Write a short summary, because RubyGems requires one."
-  spec.description = "efde Write a longer description or delete this line."
-  spec.homepage = "https://github.com/devengo/iban-com-ruby"
+  spec.summary = "Ruby client for iban.com APIs"
+  spec.description = "Ruby client for iban.com APIs"
+  spec.homepage = "https://github.com/devengo/ibancom-ruby"
   spec.license = "MIT"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/devengo/iban-com-ruby"
-  spec.metadata["changelog_uri"] = "https://github.com/devengo/iban-com-ruby/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/devengo/ibancom-ruby"
+  spec.metadata["changelog_uri"] = "https://github.com/devengo/ibancom-ruby/CHANGELOG.md"
   spec.metadata["rubygems_mfa_required"] = "true"
 
   # Specify which files should be added to the gem when it is released.
