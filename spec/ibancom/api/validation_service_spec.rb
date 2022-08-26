@@ -61,14 +61,12 @@ RSpec.describe Ibancom::API::ValidationService do
       it "confirms it is invalid" do
         expect(iban).to be_a(Ibancom::Resources::IBAN::Validation)
         expect(iban.valid?).to be false
-        expect(iban.failed_checks).not_to be_empty
       end
 
       it "provides failed checks" do
         checks = iban.checks
 
         expect(checks).to be_a(Ibancom::Resources::IBAN::Checks)
-        expect(iban.failed_checks).not_to be_empty
         expect(iban.failed_checks).not_to be_empty
       end
     end
