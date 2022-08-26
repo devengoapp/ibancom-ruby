@@ -14,7 +14,7 @@ RSpec.describe Ibancom::API::ValidationService do
     end
 
     context "when a valid IBAN is provided" do
-      let(:iban_number) { "ES6930350016560160061541" }
+      let(:iban_number) { "ES7004878248947469245596" }
 
       before do
         stub_request(:post, %r{/clients/api/v4/iban/$}).to_return(read_http_fixture("validations/validate/success.http"))
@@ -29,10 +29,10 @@ RSpec.describe Ibancom::API::ValidationService do
         bank = iban.bank
 
         expect(bank).to be_a(Ibancom::Resources::IBAN::Bank)
-        expect(bank.bic).to eq("CLPEES2MXXX")
+        expect(bank.bic).to eq("CAIXESBBXXX")
         expect(bank.country_iso).to eq("ES")
-        expect(bank.bank_code).to eq("3035")
-        expect(bank.bank).to eq("LABORAL KUTXA (CAJA LABORAL POPULAR COOP.DE CREDITO)")
+        expect(bank.bank_code).to eq("0487")
+        expect(bank.bank).to eq("CAIXABANK S.A.")
       end
 
       it "returns schemes information" do
