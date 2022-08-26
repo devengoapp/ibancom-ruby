@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 25 Aug 2022 10:29:14 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+{"bank_data":{"bic":"CLPEES2MXXX","branch":"Barakaldo - Fueros","bank":"LABORAL KUTXA (CAJA LABORAL POPULAR COOP.DE CREDITO)","address":"Guipuzcoa, 2","city":"Barakaldo","state":"VIZCAYA","zip":"48901","phone":"944180002","fax":"944189204","www":"www.cajalaboral.es","email":null,"country":"Spain","country_iso":"ES","account":"0160061541","bank_code":"3035","branch_code":"0016"},"sepa_data":{"SCT":"YES","SCI":"YES","SDD":"YES","COR1":"YES","B2B":"YES","SCC":"NO"},"validations":{"chars":{"code":"006","message":"IBAN does not contain illegal characters"},"account":{"code":"002","message":"Account Number check digit is correct"},"iban":{"code":"001","message":"IBAN Check digit is correct"},"structure":{"code":"005","message":"IBAN structure is correct"},"length":{"code":"003","message":"IBAN Length is correct"},"country_support":{"code":"007","message":"Country supports IBAN standard"}},"errors":[]}

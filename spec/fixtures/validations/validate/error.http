@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 25 Aug 2022 10:28:35 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+{"bank_data":{"bic":"","branch":"","bank":"","address":"","city":"","state":"","zip":"","phone":"","fax":"","www":"","email":"","country":null,"country_iso":"FA","account":"","bank_code":"","branch_code":""},"sepa_data":{"SCT":"NO","SCI":"NO","SDD":"NO","COR1":"NO","B2B":"NO","SCC":"NO"},"validations":{"chars":{"code":"006","message":"IBAN does not contain illegal characters"},"account":{"code":"004","message":"Account Number check digit is not performed for this bank or branch"},"iban":{"code":"202","message":"IBAN Check digit not correct"},"structure":{"code":"205","message":"IBAN structure is not correct"},"length":{"code":"003","message":"IBAN Length is correct"},"country_support":{"code":"207","message":"Country does not support IBAN standard"}},"errors":[]}
