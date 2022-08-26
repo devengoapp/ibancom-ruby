@@ -2,7 +2,6 @@
 
 require "ibancom"
 
-
 RSPEC_ROOT = File.expand_path(__dir__) unless defined?(RSPEC_ROOT)
 Dir[File.join(RSPEC_ROOT, "support/**/*.rb")].sort.each { |f| require f }
 
