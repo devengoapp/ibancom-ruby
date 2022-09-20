@@ -69,6 +69,10 @@ RSpec.describe Ibancom::API::ValidationService do
         expect(checks).to be_a(Ibancom::Resources::IBAN::Checks)
         expect(iban.failed_checks).not_to be_empty
       end
+
+      it "return false supported scheme" do
+        expect(iban.supported_scheme?(:SCI)).to be false
+      end
     end
   end
 end

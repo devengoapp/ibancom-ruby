@@ -29,7 +29,10 @@ module Ibancom
 
         def supported_scheme?(code)
           scheme = supported_schemes.find { |supported| supported.code == code }
-          scheme&.supported?
+
+          return false if scheme.nil?
+
+          scheme.supported?
         end
       end
     end
