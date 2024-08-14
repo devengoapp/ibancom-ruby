@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 26 Aug 2022 08:47:57 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+{"iban": "GB58REVO11111122222222", "account": "22222222", "sort_code": "111111", "bank": "REVOLUT LTD", "branch": "Revolut", "bic": "REVOGB21XXX", "address": "7 Westferry Circus ", "city": "London", "zip": "E14 4HD", "country": "GB", "phone": "0303 3130060"}
