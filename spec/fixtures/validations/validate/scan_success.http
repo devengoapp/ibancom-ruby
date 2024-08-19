@@ -1,0 +1,59 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 26 Aug 2022 08:47:57 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+{
+    "errors": [],
+    "validations": {
+        "chars_sortcode": {
+            "code": "006",
+            "message": "Sort Code does not contain illegal characters"
+        },
+        "chars_account": {
+            "code": "007",
+            "message": "Account Number does not contain illegal characters"
+        },
+        "length_sortcode": {
+            "code": "008",
+            "message": "Sort Code length is correct"
+        },
+        "length_account": {
+            "code": "009",
+            "message": "Account Number length is correct"
+        },
+        "modulus": {
+            "code": "001",
+            "message": "Modulus Success: Check digit is valid"
+        },
+        "sort_found": {
+            "code": "002",
+            "message": "Sort Code found in bank directory"
+        }
+    },
+    "account_data": {
+        "sortcode": "200415",
+        "account": "38290008",
+        "iban": "GB46BUKB20041538290008"
+    },
+    "bank_data": {
+        "bic": "BUKBGB22XXX",
+        "bank": "BARCLAYS BANK UK PLC",
+        "branch": "BARCLAYBANK B'CARD N'PTON",
+        "address": "Dept AC Barclaycard House ",
+        "city": "Northampton",
+        "zip": "NN4 7SG",
+        "phone": "01604 234234",
+        "country": "GB"
+    },
+    "payment_schemes": {
+        "DD": "NO",
+        "FPS_PAYMENTS": "YES",
+        "CHAPS": "YES",
+        "BACS": "YES",
+        "CCC_PAYMENTS": "YES"
+    }
+}
