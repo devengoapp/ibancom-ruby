@@ -25,6 +25,7 @@ Or install it yourself as:
 This gem provides support for the following APIs:
 
 - Validation API v4
+- Sortware API v4
 
 ## Usage
 
@@ -77,6 +78,44 @@ iban.failed_checks
 #[#<Ibancom::Resources::IBAN::Check:0x00007f384a576eb0 @code="202", @message="IBAN Check digit not correct", @response=nil, @type=:iban>,
 # #<Ibancom::Resources::IBAN::Check:0x00007f384a576de8 @code="205", @message="IBAN structure is not correct", @response=nil, @type=:structure>,
 # #<Ibancom::Resources::IBAN::Check:0x00007f384a576cf8 @code="203", @message="IBAN Length is not correct. Spain IBAN must be 24 characters long.", @response=nil, @type=:length>]
+```
+
+You can also validate United Kingdom Sort Code and Account Numbers:
+
+```rb
+scan = client.validations.validate_scan("200415", "38290008")
+scan.valid? # true
+
+# What is the bank/branch associated to this account?
+bank = scan.bank # <Ibancom::Resources::SCAN::Bank:0x0000000107c0fc80 ...
+bank.bank        # "BARCLAYS BANK UK PLC"
+bank.bic         # "BUKBGB22XXX"
+bank.branch      # "BARCLAYBANK B'CARD N'PTON"
+bank.address     # "Dept AC Barclaycard House "
+bank.city        # "Northampton"
+bank.zip         # "NN4 7SG"
+bank.phone       # "01604 234234"
+bank.country     # "GB"
+
+# What payment schemes does it support?
+scan.supported_schemes
+#[#<Ibancom::Resources::SCAN::Scheme:0x0000000107c0df70 @code=:FPS_PAYMENTS, @response=nil, @supported="YES">,
+# #<Ibancom::Resources::SCAN::Scheme:0x0000000107c0def8 @code=:CHAPS, @response=nil, @supported="YES">,
+# #<Ibancom::Resources::SCAN::Scheme:0x0000000107c0de80 @code=:BACS, @response=nil, @supported="YES">,
+# #<Ibancom::Resources::SCAN::Scheme:0x0000000107c0de08 @code=:CCC_PAYMENTS, @response=nil, @supported="YES">]
+
+# Does the SCAN supports faster payments?
+scan.supported_scheme?(:FPS_PAYMENTS) # true
+```
+
+In the same way as with the IBAN, when the SCAN is not valid the failed checks are available for inspection:
+
+```rb
+scan = client.validations.validate_scan("000001", "00000002")
+scan.valid? # false
+scan.failed_checks
+#[#<Ibancom::Resources::SCAN::Check:0x00000001088debf0 @code="202", @message="Sort Code not found in bank directory",
+# @response=nil, @type=:length>]
 ```
 
 ## Development
