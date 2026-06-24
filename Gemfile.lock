@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ibancom (0.0.10)
+    ibancom (0.0.11)
       faraday (>= 0.15)
 
 GEM
@@ -107,6 +107,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  arm64-darwin-25
   x86_64-linux
 
 DEPENDENCIES

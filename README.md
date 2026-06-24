@@ -125,8 +125,12 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then tag and push the new version:
 
 ```git
-git tag vx.x.x main
-git push origin vx.x.x
+bundle install
+git add .
+git commit -m 'feat(release): Bump to vX.X.X'
+git push
+git tag vX.X.X main
+git push origin vX.X.X
 ```
 
 The tagging will trigger the GitHub action defined in `release.yml`, pushing the gem to [rubygems.org](https://rubygems.org).
