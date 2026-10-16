@@ -35,6 +35,18 @@ The first step for using this gem is to instantiate the client:
 client = Ibancom::Client.new(apikey: "YOUR_API_KEY")
 ```
 
+HTTP logging is enabled by default through `Faraday::Response::Logger`. You can replace that middleware and pass extra options to it:
+
+```rb
+client = Ibancom::Client.new(
+  apikey: "YOUR_API_KEY",
+  logger_middleware: CustomMiddleware,
+  logger_options: { log_level: :debug }
+)
+```
+
+`logger_options` are merged over `{ headers: true, bodies: true }`. The middleware is initialized as `Middleware.new(app, nil, options)` and receives the existing password filter block. Set `logger_enabled: false` to skip logging.
+
 Once you have an authenticated client, you can validate any IBAN easily by using the validations service:
 
 ```rb
