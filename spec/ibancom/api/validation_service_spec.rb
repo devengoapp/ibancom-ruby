@@ -11,7 +11,7 @@ RSpec.describe Ibancom::API::ValidationService do
       client.validations.validate("test")
 
       expect(WebMock).to have_requested(:post, %r{/clients/api/v4/iban/})
-        .with(body: "api_key=test&format=json&iban=test&sci=1")
+        .with(body: "api_key=test&format=json&iban=test&sci=1&sci_tips=1")
     end
 
     context "when a valid IBAN is provided" do
@@ -42,6 +42,7 @@ RSpec.describe Ibancom::API::ValidationService do
         expect(schemes).to be_a(Ibancom::Resources::IBAN::Schemes)
         expect(iban.supported_schemes).not_to be_empty
         expect(iban.supported_scheme?(:SCI)).to be true
+        expect(iban.supported_scheme?(:SCI_TIPS)).to be true
       end
 
       it "returns checks information" do
@@ -73,6 +74,7 @@ RSpec.describe Ibancom::API::ValidationService do
 
       it "return false supported scheme" do
         expect(iban.supported_scheme?(:SCI)).to be false
+        expect(iban.supported_scheme?(:SCI_TIPS)).to be false
       end
     end
   end
