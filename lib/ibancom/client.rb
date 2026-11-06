@@ -25,6 +25,11 @@ module Ibancom
       @services = {}
     end
 
+    # The default prints every instance variable, the API key included.
+    def inspect
+      "#<#{self.class.name}>"
+    end
+
     def connection
       @connection ||= Faraday.new do |builder|
         builder.request :url_encoded

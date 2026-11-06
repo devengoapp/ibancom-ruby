@@ -145,4 +145,12 @@ RSpec.describe Ibancom::Client do
       end
     end.new
   end
+
+  describe "#inspect" do
+    it "leaves the API key out, pp included" do
+      client.connection
+
+      expect([client.inspect, client.pretty_inspect]).to eq(["#<Ibancom::Client>", "#<Ibancom::Client>\n"])
+    end
+  end
 end
