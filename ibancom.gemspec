@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "guard", "~> 2.0"
   spec.add_development_dependency "guard-rspec", "~> 4.0"
-  spec.add_development_dependency "rake", "~> 12.0"
+  spec.add_development_dependency "rake", "~> 13.4"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rubocop", "~> 1.2"
   spec.add_development_dependency "rubocop-performance", "~> 1.0"
