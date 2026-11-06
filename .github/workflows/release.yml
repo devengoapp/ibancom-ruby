@@ -11,11 +11,11 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
       - name: Fix git safe.directory in container cf. https://github.com/actions/runner/issues/2033 # yamllint disable-line
         run: mkdir -p /home/runner/work/_temp/_github_home && printf "[safe]\n\tdirectory = /github/workspace" > /home/runner/work/_temp/_github_home/.gitconfig # yamllint disable-line
       - name: Release Gem
-        uses: cadwallion/publish-rubygems-action@8f9e0538302643309e4e43bf48cd34173ca48cfc # yamllint disable-line
+        uses: cadwallion/publish-rubygems-action@94a6f4cd5350581749c569b5001eecc864e3ad0b # yamllint disable-line
         env:
           RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
           RELEASE_COMMAND: rake release
