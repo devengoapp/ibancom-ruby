@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name = "ibancom"
   spec.version = Ibancom::VERSION
   spec.authors = ["Aitor García Rey"]
-  spec.email = ["aitor@devengo.com"]
+  spec.email = ["dev@devengo.com"]
 
   spec.summary = "Ruby client for iban.com APIs"
   spec.description = "Ruby client for iban.com APIs"
@@ -28,17 +28,6 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = ">= 2.6.0"
-  spec.add_dependency "faraday", ">= 0.15"
-
-  spec.add_development_dependency "guard", "~> 2.0"
-  spec.add_development_dependency "guard-rspec", "~> 4.0"
-  spec.add_development_dependency "rake", "~> 12.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "rubocop", "~> 1.2"
-  spec.add_development_dependency "rubocop-performance", "~> 1.0"
-  spec.add_development_dependency "rubocop-rake", "~> 0.6"
-  spec.add_development_dependency "rubocop-rspec", "~> 2.0"
-  spec.add_development_dependency "test-prof", "~> 1.0"
-  spec.add_development_dependency "webmock", "~> 3.0"
+  spec.required_ruby_version = ">= 3.2"
+  spec.add_dependency "faraday", ">= 2.14.3", "< 3"
 end
