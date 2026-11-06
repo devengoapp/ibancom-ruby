@@ -9,7 +9,7 @@ module Ibancom
                     :schemes
 
         def initialize(response, attributes = {})
-          super(response, attributes)
+          super
           @bank = Bank.new(response, attributes[:bank_data])
           @checks = Checks.new(response, attributes[:validations])
           @schemes = Schemes.new(response, attributes[:sepa_data])

@@ -3,7 +3,6 @@
 require "faraday"
 require "securerandom"
 
-# require "faraday_middleware"
 require_relative "api/services"
 require_relative "resources/base"
 
@@ -20,7 +19,7 @@ module Ibancom
       @user_agent = options[:user_agent] || default_user_agent
       @proxy = options[:proxy]
       @apikey = options[:apikey] || ENV["IBANCOM_APIKEY"]
-      @logger_enabled = options[:logger_enabled].nil? ? true : options[:logger_enabled]
+      @logger_enabled = options[:logger_enabled].nil? || options[:logger_enabled]
       @logger_middleware = options.fetch(:logger_middleware, Faraday::Response::Logger)
       @logger_options = options.fetch(:logger_options, {})
       @services = {}
@@ -38,6 +37,7 @@ module Ibancom
         if @logger_enabled
           builder.use @logger_middleware, nil, { headers: true, bodies: true }.merge(@logger_options) do |logger|
             logger.filter(/("password":)"(\w+)"/, '\1[FILTERED]')
+            logger.filter(/(api_key=)[^&\s]+/, '\1[FILTERED]')
           end
         end
         builder.adapter :net_http
@@ -99,7 +99,6 @@ module Ibancom
     end
 
     def handle_error_response(error)
-      puts "ERROR #{error.response}"
       raise error
     end
 

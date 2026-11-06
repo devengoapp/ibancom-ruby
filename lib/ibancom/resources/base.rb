@@ -8,7 +8,7 @@ module Ibancom
       def initialize(response, attributes = {})
         @response = response
         attributes.each do |key, value|
-          m = "#{key}=".to_sym
+          m = :"#{key}="
           send(m, value) if respond_to?(m)
         end
       end

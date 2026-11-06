@@ -4,6 +4,7 @@ module Ibancom
   module Resources
     class Collection
       include Enumerable
+
       attr_reader :response
 
       def initialize(response, item_klass, attributes_collection = [])
@@ -12,8 +13,8 @@ module Ibancom
         @items = attributes_collection.map { |attributes_item| item_klass.new(nil, attributes_item) }
       end
 
-      def each(&block)
-        @items.each(&block)
+      def each(&)
+        @items.each(&)
       end
     end
   end
