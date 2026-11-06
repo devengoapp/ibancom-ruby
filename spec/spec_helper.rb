@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+require "simplecov"
+SimpleCov.start do
+  enable_coverage :branch
+  skip "/spec/"
+end
+
 require "ibancom"
 
 RSPEC_ROOT = File.expand_path(__dir__) unless defined?(RSPEC_ROOT)
