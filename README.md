@@ -134,18 +134,24 @@ scan.failed_checks
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bundle exec rake` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then tag and push the new version:
+To install this gem onto your local machine, run `bundle exec rake install`.
 
-```git
-bundle install
-git add .
-git commit -m 'feat(release): Bump to vX.X.X'
-git push
-git tag vX.X.X main
-git push origin vX.X.X
-```
+### Releasing
 
-The tag triggers `release.yml`: it runs CI, checks the tag is on `main` and publishes the gem to [rubygems.org](https://rubygems.org) through [trusted publishing](https://guides.rubygems.org/trusted-publishing/), with no API key.
+Anyone with write access can release:
+
+1. Open a PR that bumps the version in `lib/ibancom/version.rb` and in `Gemfile.lock` (`bundle install`), titled `Bump to vX.Y.Z`, and merge it once CI passes.
+2. Tag the merge commit on `main` and push the tag:
+
+   ```sh
+   git switch main && git pull
+   git tag -m vX.Y.Z vX.Y.Z
+   git push origin vX.Y.Z
+   ```
+
+The tag triggers `release.yml`, which runs CI, fails unless the tag is on `main`, and publishes the gem to [rubygems.org](https://rubygems.org/gems/ibancom) through [trusted publishing](https://guides.rubygems.org/trusted-publishing/) with a [Sigstore](https://www.sigstore.dev) attestation. No API key is involved.
+
+If the `publish` job fails, fix the cause and re-run the failed job; the tag stays as it is.
 
 ## Contributing
 
