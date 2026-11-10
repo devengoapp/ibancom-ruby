@@ -23,6 +23,10 @@ jobs:
     permissions:
       contents: read
       id-token: write
+    env:
+      # Keeps the bundle's json 3 away from the sigstore signer, which breaks
+      # under it (segiddins/protobug#333).
+      BUNDLE_PATH: vendor/bundle
     steps:
       - name: Checkout Code
         # yamllint disable-line rule:line-length
