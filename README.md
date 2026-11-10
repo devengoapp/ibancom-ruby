@@ -140,7 +140,11 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 Anyone with write access can release:
 
-1. Open a PR that bumps the version in `lib/ibancom/version.rb` and in `Gemfile.lock` (`bundle install`), titled `Bump to vX.Y.Z`, and merge it once CI passes.
+1. Open a PR titled `Bump to vX.Y.Z` that:
+   - bumps the version in `lib/ibancom/version.rb` and in `Gemfile.lock` (`bundle install`);
+   - moves the entries under `## [Unreleased]` in `CHANGELOG.md` into a new `## [X.Y.Z] - YYYY-MM-DD` section, following [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+   Merge it once CI passes.
 2. Tag the merge commit on `main` and push the tag:
 
    ```sh
@@ -149,9 +153,11 @@ Anyone with write access can release:
    git push origin vX.Y.Z
    ```
 
-The tag triggers `release.yml`, which runs CI, fails unless the tag is on `main`, and publishes the gem to [rubygems.org](https://rubygems.org/gems/ibancom) through [trusted publishing](https://guides.rubygems.org/trusted-publishing/) with a [Sigstore](https://www.sigstore.dev) attestation. No API key is involved.
+The tag triggers `release.yml`, which runs CI, fails unless the tag is on `main` and `CHANGELOG.md` has a section for the version, and publishes the gem to [rubygems.org](https://rubygems.org/gems/ibancom) through [trusted publishing](https://guides.rubygems.org/trusted-publishing/) with a [Sigstore](https://www.sigstore.dev) attestation. No API key is involved.
 
 If the `publish` job fails, fix the cause and re-run the failed job; the tag stays as it is.
+
+Once published, create a [GitHub release](https://github.com/devengoapp/ibancom-ruby/releases) for the tag with the version's changelog section as notes.
 
 ## Contributing
 
