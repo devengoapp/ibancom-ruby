@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ibancom (0.0.14)
+    ibancom (0.1.0)
       faraday (>= 2.14.3, < 3)
 
 GEM
