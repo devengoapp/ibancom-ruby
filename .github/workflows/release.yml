@@ -16,7 +16,7 @@ jobs:
 
   publish:
     needs: ci
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     environment:
       name: release
       url: https://rubygems.org/gems/ibancom
