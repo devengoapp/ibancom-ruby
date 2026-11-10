@@ -27,8 +27,10 @@ jobs:
       - name: Check CHANGELOG.md has this version
         run: |
           version="${GITHUB_REF_NAME#v}"
-          grep -qF "## [$version] - " CHANGELOG.md ||
-            { echo "::error file=CHANGELOG.md::No '## [$version] - YYYY-MM-DD' section"; exit 1; }
+          grep -qF "## [$version] - " CHANGELOG.md || {
+            echo "::error file=CHANGELOG.md::No section for $version"
+            exit 1
+          }
 
   publish:
     needs: [ci, changelog]
